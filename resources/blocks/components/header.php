@@ -12,7 +12,7 @@ $message = $_SESSION["message"] ?? "";
  <header>
 	<div class="container">
 		<div class="logo">
-			<img src="resources/img/logo.svg" alt="linkify logo">
+			<img class="logo" src="resources/img/logo.svg" alt="linkify logo">
 		</div>
 
 	</div>
