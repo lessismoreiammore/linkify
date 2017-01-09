@@ -67,3 +67,61 @@ function registerUser($connection, $fullName, $userName, $email, $password)
         return true;
     }
 }
+
+//Create function for logging in the user
+function loginUser($connection, $userName, $password)
+{
+    // Using escape function for the username and password by the user
+    list($userName, $password) = escapeData($connection, [$userName, $password]);
+
+    // Get the right user based on the username that is typed in
+    $user = dbGet($connection, "SELECT * FROM users WHERE email = '$userName' OR username = '$userName'", true);
+    if ($user) {
+        // Checks if the password matched with the right user's password.
+        if (password_verify($password, $user["password"])) {
+            return $user["id"];
+        }
+    }
+	 // Print error message if password and username don't match
+    session_start();
+    $_SESSION["error"] = "Invalid username, email or password.";
+    return false;
+}
+
+function validateCookie($connection)
+{
+    $values = explode("|", $_COOKIE["linkify"]);
+    $entry = dbGet($connection, "SELECT uid FROM tokens WHERE uid = '$values[1]' AND one = '$values[0]' AND two = '$values[2]' AND expire >= NOW()", true);
+    return ($entry) ? $entry["uid"]:false;
+}
+
+// Creates a function to see if user is logged in. Using both SESSION and COOKIE array.
+function checkLogin($connection)
+{
+    session_start();
+    if (!isset($_SESSION["login"])) {
+        if (!isset($_COOKIE["linkify"])) {
+            return false;
+        }
+        if (!($uid = validateCookie($connection))) {
+            return false;
+        }
+        $_SESSION["login"] = [
+            "uid" => $uid
+        ];
+    }
+    return true;
+}
+
+// Get the corresponding user info when user has been logged in
+function getUserInfo($connection, $identification, $type = "id")
+{
+    $identification = mysqli_real_escape_string($connection, $identification);
+    $user = [];
+    if ($type === "id") {
+        $user = dbGet($connection, "SELECT id, username, email, name FROM users WHERE id = '$identification'", true);
+    } else if ($type === "username") {
+        $user = dbGet($connection, "SELECT id, username, email, name FROM users WHERE username = '$identification'", true);
+    }
+    return $user;
+}
