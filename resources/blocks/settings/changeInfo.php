@@ -14,3 +14,11 @@ foreach($users as $user) {
 require("../../blocks/components/error.php");
 require("../../blocks/components/message.php");
 ?>
+
+<form action="../../lib/settings.php" method="POST">
+	<input type="hidden" name="action" value="changeInfo">
+	<input type="text" name="username" value="<?= $username; ?>">
+	<input type="email" name="email" value="<?= $email; ?>">
+	<input type="password" name="password">
+	<button type="submit">Save changes</button>
+</form>
