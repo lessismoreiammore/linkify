@@ -13,7 +13,7 @@
 		<br>
 		<a href="/resources/blocks/components/writePost.php">New Post</a>
 		<br>
-		<a href="/resources/lib/myPosts.php">My own posts</a>
+		<a href="/resources/lib/userPosts.php">My own posts</a>
 		<br>
 		<?php require("resources/lib/allPosts.php"); ?>
 	</body>
