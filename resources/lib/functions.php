@@ -125,3 +125,31 @@ function getUserInfo($connection, $identification, $type = "id")
     }
     return $user;
 }
+
+function validateUserPassword($connection, $uid, $password)
+{
+    $hash = dbGet($connection, "SELECT password FROM users WHERE id = '$uid'", true)["password"];
+    return password_verify($password, $hash);
+}
+
+function imageName ($length = 32)
+{
+    $string = "";
+    $chars = array_merge(range("A", "Z"), range("a", "z"), range(0, 9));
+    for ($i = 0; $i < $length; $i++) {
+        $string .= $chars[array_rand($chars)];
+    }
+    return $string;
+}
+
+function uploadImage ($connection, $imageInfo, $type, $uid)
+{
+    $name = imageName() . strrchr($imageInfo["name"], ".");
+    if (!move_uploaded_file($imageInfo["tmp_name"], "../img/users/$uid/$name")) {
+        $_SESSION["error"] = "There was a problem uploading your image.";
+    } else {
+        if ($type === "avatar") {
+            dbPost($connection, "UPDATE users SET avatar = '$name' WHERE id = '$uid'");
+        }
+    }
+}
