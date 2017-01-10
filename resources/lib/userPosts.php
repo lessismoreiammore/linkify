@@ -15,6 +15,7 @@ require("functions.php");
 		$uid = $_SESSION["login"]["uid"];
 
 		$posts = dbGet($connection, "SELECT * FROM posts INNER JOIN users ON users.id = posts.uid WHERE uid = '$uid' ORDER BY published DESC;");
+
 		$commentInfo = dbGet($connection, "SELECT * FROM comments INNER JOIN users ON users.id = comments.uid ORDER BY published DESC;");
 
 		foreach($posts as $post) {
@@ -25,12 +26,14 @@ require("functions.php");
 			$postAvatar = $post["avatar"];
 			$uid = $post["uid"];
 			$postid = $post["postid"];
+			$postLink = $post["link"];
 			?>
 
 			<div class="placeholderAvatar"><img src="/resources/img/users/<?php echo $uid ?>/<?php echo $postAvatar; ?>" style="width: 100%; height: 100%;" alt=""></div>
 			<div class="postContent">
 				<h4><?= $postTitle; ?></h4> <br>
-				<a href="#"><?= $postContent; ?></a><br>
+				<a href="#"><?= $postLink; ?></a><br>
+				<p><?= $postContent; ?></p><br>
 				<a class="comments" href="#">comments</a>
 			</div>
 			<br>
