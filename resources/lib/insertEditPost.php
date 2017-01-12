@@ -1,11 +1,14 @@
 <?php
-session_start();
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+	// session_start();
     require("functions.php");
+
     if (!checkLogin($connection)) {
         header("Location: /");
         die();
     }
+
     $action = $_POST["editAction"];
     if ($action === "editPost") {
         if (empty($_POST["newContent"]) || empty($_POST["newTitle"])) {
@@ -13,12 +16,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             header("Location: /");
             die();
         }
+
         $content = mysqli_real_escape_string($connection, $_POST["newContent"]);
         $uid = $_SESSION["login"]["uid"];
-        $date = date("Y-m-d H:i:s");
-		  $title = $_POST["newTitle"];
+		  $title = ($_POST["newTitle"]);
+          $link = ($_POST["newLink"]);
 		  $urlid = $_POST["urlid"];
-        dbPost($connection, "UPDATE posts SET uid = '$uid', content = '$content', published = '$date', title = '$title' WHERE postid = '$urlid';)");
+
+          //stores uid instead of post id
+          // echo $urlid;
+
+		  if (!dbPost($connection, "UPDATE posts SET uid = '$uid', content = '$content', title = '$title', link = '$link' WHERE id = '$urlid'")) {
+            $_SESSION["error"] = "Could not connect to the database, try again later.";
+        } else {
+            $_SESSION["message"] = "Success! Your changes has been registred.";
+        }
+
         header("Location: /");
         die();
     }
