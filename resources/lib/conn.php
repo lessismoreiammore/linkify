@@ -21,7 +21,7 @@ function dbGet($connection, $query, $single = false)
             $data[] = $row;
         }
     }
-    
+
     mysqli_free_result($result);
     return $data;
 }
@@ -30,4 +30,9 @@ function dbGet($connection, $query, $single = false)
 function dbPost($connection, $query)
 {
     return mysqli_query($connection, $query);
+}
+
+function dbDelete($connection, $query)
+{
+
 }

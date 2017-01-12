@@ -36,6 +36,13 @@ require("functions.php");
 			</div>
 			<br>
 			<a href="editPostids/<?= $postid ?>.php">Edit</a>
+
+            <form method="POST" action="/resources/lib/deletePost.php">
+            	<input type="hidden" name="deleteAction" value="deletePost">
+            	<input type="hidden" name="urlid" value="<?= $postid ?>">
+               <button type="submit">Delete</button>
+            </form>
+
 			<?php
 			$myfile = fopen("editPostids/$postid.php", "w");
 			$txt = "<?php

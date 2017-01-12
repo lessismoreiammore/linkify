@@ -7,8 +7,11 @@
 	<body>
 		<div class="postContainer">
 		<?php
+		//Get info about posts from database
 		$postInfo = dbGet($connection, "SELECT *, posts.id 'postid'  FROM posts INNER JOIN users ON users.id = posts.uid ORDER BY published DESC;");
-		$commentInfo = dbGet($connection, "SELECT * FROM comments INNER JOIN users ON users.id = comments.uid ORDER BY published DESC;");
+
+		//Get info about comments from database
+		$commentInfo = dbGet($connection, "SELECT post_id, content, users.name FROM comments INNER JOIN users ON users.id = comments.uid ORDER BY published DESC;");
 
 		foreach($postInfo as $post) {
 			$postContent = $post["content"];
@@ -29,11 +32,6 @@
 				</div>
 
 				<div class="hide" id="content">
-					<?php
-					foreach ($commentInfo as $comments) {
-						echo $comments["content"] . " - " . $comments["name"] . "<br>";
-					}
-					 ?>
 					<br>
 					<form action="resources/lib/insertComment.php" method="POST">
 						<input type="hidden" name="commentAction" value="createComment">
@@ -41,10 +39,18 @@
                        <input type="hidden" name="postId" value="<?= $postId ?>">
 					   <button type="submit">Comment</button>
 					</form>
+
+					<?php
+					$post_id = $commentInfo["post_id"];
+					foreach ($commentInfo as $comments) {
+						// if($post_id === $postId){
+							echo $comments["content"] . " - " . $comments["name"] . "<br>";
+						// }
+					}
+					 ?>
 				</div>
 				<br><br>
 		<?php
-		echo $postId;
 		}
 		?>
 		</div>

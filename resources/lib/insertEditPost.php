@@ -23,9 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           $link = ($_POST["newLink"]);
 		  $urlid = $_POST["urlid"];
 
-          //stores uid instead of post id
-          // echo $urlid;
-
 		  if (!dbPost($connection, "UPDATE posts SET uid = '$uid', content = '$content', title = '$title', link = '$link' WHERE id = '$urlid'")) {
             $_SESSION["error"] = "Could not connect to the database, try again later.";
         } else {
