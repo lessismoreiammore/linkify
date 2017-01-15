@@ -28,7 +28,8 @@
 					<h4><?= $postTitle; ?></h4> <br>
 					<a href="#"><?= $postLink; ?></a><br>
                     <p><?= $postContent; ?></p><br>
-					<a class="comments" href="#" data-post-id="<?= $uid ?>">comments</a>
+					<a class="likes" href="#" >Like</a>
+					<a class="comments" href="#" data-post-id="<?= $uid ?>">Comment</a>
 				</div>
 
 				<div class="hide" id="content">
