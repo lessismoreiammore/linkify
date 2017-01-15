@@ -5,7 +5,7 @@ $connection = mysqli_connect("localhost", "root", "root", "linkify");
 mysqli_set_charset($connection, "utf8");
 
 // Check  wheter connection works
-// if ($conn->connect_error) {
+// if ($connection->connect_error) {
 //     die("Connection failed: " . $conn->connect_error);
 // }
 // echo "Connected successfully";
@@ -30,9 +30,4 @@ function dbGet($connection, $query, $single = false)
 function dbPost($connection, $query)
 {
     return mysqli_query($connection, $query);
-}
-
-function dbDelete($connection, $query)
-{
-
 }

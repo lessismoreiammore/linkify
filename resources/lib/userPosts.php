@@ -13,8 +13,11 @@ require("functions.php");
 		<?php
 		$uid = $_SESSION["login"]["uid"];
 
+        //Get info about posts from database
 		$posts = dbGet($connection, "SELECT *, posts.id 'postid' FROM posts INNER JOIN users ON users.id = posts.uid WHERE uid = '$uid' ORDER BY published DESC;");
-		$commentInfo = dbGet($connection, "SELECT * FROM comments INNER JOIN users ON users.id = comments.uid ORDER BY published DESC;");
+        
+        //Get info about comments from database
+		$comments = dbGet($connection, "SELECT * FROM comments INNER JOIN users ON users.id = comments.uid ORDER BY published DESC;");
 
 		foreach($posts as $post) {
 			$postContent = $post["content"];
@@ -55,8 +58,8 @@ require("functions.php");
 
 			<div class="hide" id="content">
 				<?php
-				// foreach ($commentInfo as $comments) {
-				// 	echo $comments["content"] . " - " . $comments["name"] . "<br>";
+				// foreach ($comments as $comment) {
+				// 	echo $comment["content"] . " - " . $comment["name"] . "<br>";
 				// }
 				 ?>
 				<br>

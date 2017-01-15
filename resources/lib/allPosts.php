@@ -5,8 +5,9 @@
 		<title></title>
 	</head>
 	<body>
-		<div class="postContainer">
+		<div class="post">
 		<?php
+
 		//Get info about posts from database
 		$postInfo = dbGet($connection, "SELECT *, posts.id 'postid'  FROM posts INNER JOIN users ON users.id = posts.uid ORDER BY published DESC;");
 
@@ -23,14 +24,24 @@
 			$postId = $post["postid"];
             $postLink = $post["link"];
 			?>
-				<div class="placeholderAvatar"><img src="/resources/img/users/<?php echo $uid ?>/<?php echo $postAvatar; ?>" style="width: 100%; height: 100%;" alt=""></div>
-				<div class="postContent">
-					<h4><?= $postTitle; ?></h4> <br>
-					<a href="#"><?= $postLink; ?></a><br>
-                    <p><?= $postContent; ?></p><br>
-					<a class="likes" href="#" >Like</a>
-					<a class="comments" href="#" data-post-id="<?= $uid ?>">Comment</a>
+
+				<div class="placeholderAvatar" style="display: inline-block"><img src="/resources/img/users/<?php echo $uid ?>/<?php echo $postAvatar; ?>" style="width: 100%; height: 100%;" alt=""></div>
+				<div class="postContent" style="display: inline-block">
+					<h4><?= $postTitle; ?></h4><br>
+					<a href="#"><?= $postLink; ?></a>
+                    <p><?= $postContent; ?></p>
+
+                    <!-- Like counter -->
+					<span><a href="resources/lib/like.php?type=post&id=<?php echo $postId?>">Like</a></span>
+                    <?php
+                    $likesNumber = dbGet($connection, "SELECT COUNT(id) AS likes FROM likes WHERE postid = '$postId'");
+                     ?>
+					<p><?php echo $likesNumber[0]['likes']?> people like this</p>
+
+                    <!-- Comment part -->
+					<span><a class="comments" href="#" data-post-id="<?= $uid ?>">Comment</a></span>
 				</div>
+
 
 				<div class="hide" id="content">
 					<br>

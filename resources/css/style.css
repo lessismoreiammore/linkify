@@ -16,7 +16,7 @@
   background: #1da1f2;
 }
 
-.placeholderAvatar {
+.post .placeholderAvatar {
 	height: 100px;
 	width: 100px;
 	display: inline-block;
@@ -27,7 +27,7 @@ a {
 h4 {
 	display: inline-block;
 }
-.postContent {
+.post .postContent {
 	display: inline-block;
 }
 .hide {
@@ -48,7 +48,7 @@ header {
   justify-content: center;
 }
 .login {
-	
+
 }
 .postContainer {
 }
