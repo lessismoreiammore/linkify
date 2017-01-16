@@ -31,12 +31,17 @@
 					<a href="#"><?= $postLink; ?></a>
                     <p><?= $postContent; ?></p>
 
-                    <!-- Like counter -->
+                    <!-- Like and unlike counters -->
+					<!-- I really miss the option of unlike at most social media that's why I decided to make it separetely -->
 					<span><a href="resources/lib/like.php?type=post&id=<?php echo $postId?>">Like</a></span>
+					<span><a href="resources/lib/unlike.php?type=post&id=<?php echo $postId?>">Unlike</a></span>
                     <?php
                     $likesNumber = dbGet($connection, "SELECT COUNT(id) AS likes FROM likes WHERE postid = '$postId'");
+					$unlikesNumber = dbGet($connection, "SELECT COUNT(id) AS likes FROM unlikes WHERE postid = '$postId'");
                      ?>
-					<p><?php echo $likesNumber[0]['likes']?> people like this</p>
+					<span><p><?php echo $likesNumber[0]['likes']?> people like this</p></span>
+					<span><p><?php echo $unlikesNumber[0]['likes']?> people do not like this</p></span>
+
 
                     <!-- Comment part -->
 					<span><a class="comments" href="#" data-post-id="<?= $uid ?>">Comment</a></span>
