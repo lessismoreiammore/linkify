@@ -50,7 +50,7 @@
 						<div class="col-md-12 padding-bottom">
 							<div class="row vertical-align-spacebetween">
 								<div class="col-md-6">
-									<button type="button" name="button" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up red" aria-hidden="true"><a class="btn-accent" href="resources/lib/like.php?type=post&id=<?php echo $postId?>"> Like</a></span></button>
+									<button type="button" name="button" class="btn btn-default grey"><span class="glyphicon glyphicon-thumbs-up red" aria-hidden="true"><a class="btn-accents" href="resources/lib/like.php?type=post&id=<?php echo $postId?>"> Like</a></span></button>
 								</div>
 								<div class="col-md-6">
 									<p><?php echo $likesNumber[0]['likes']?> people like this</p>
@@ -62,7 +62,7 @@
 						<div class="col-md-12 padding-bottom">
 							<div class="row">
 								<div class="col-md-6">
-									<button type="button" name="button" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"><a class="btn-accent" href="resources/lib/unlike.php?type=post&id=<?php echo $postId?>"> Dislike</a></button>
+									<button type="button" name="button" class="btn btn-default grey"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"><a class="btn-accents" href="resources/lib/unlike.php?type=post&id=<?php echo $postId?>"> Dislike</a></button>
 								</div>
 								<div class="col-md-6">
 									<p><?php echo $unlikesNumber[0]['likes']?> people dislike this</p>

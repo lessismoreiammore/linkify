@@ -3,6 +3,10 @@ a{
   color:#777 !important;
 }
 
+/*Remove the autofill yellow color by Chrome*/
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
 /*Error and messages styling*/
 .errorContent, .messageContent {
   width: 100%;
@@ -12,6 +16,10 @@ a{
   text-align: center;
   font-size: 14px;
   font-weight: bold;
+  margin-top: 20px;
+  -webkit-box-shadow: 0px 7px 1px -1px rgba(128,41,33,1);
+-moz-box-shadow: 0px 7px 1px -1px rgba(128,41,33,1);
+box-shadow: 0px 7px 1px -1px rgba(128,41,33,1);
 }
 
 .errorContent {
@@ -63,8 +71,8 @@ header h1, header h4, header p{
 /*ALL POSTS PART*/
 
 .post h4{
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .post p{
@@ -72,7 +80,7 @@ header h1, header h4, header p{
 }
 
 .padding-bottom{
-    padding-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 .vertical-align-spacebetween{
@@ -88,27 +96,32 @@ header h1, header h4, header p{
 }
 
 .btn-accent{
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-decoration: none !important;
+  -webkit-box-shadow: 0px 5px 1px -1px rgba(128,41,33,1);
+-moz-box-shadow: 0px 5px 1px -1px rgba(128,41,33,1);
+box-shadow: 0px 5px 1px -1px rgba(128,41,33,1);
+}
+
+.btn-accents{
     text-transform: uppercase;
     letter-spacing: 1.5px;
     text-decoration: none !important;
+}
+
+.grey{
+  -webkit-box-shadow: 0px 2px 1px -1px rgba(71,71,71,1);
+-moz-box-shadow: 0px 2px 1px -1px rgba(71,71,71,1);
+box-shadow: 0px 2px 1px -1px rgba(71,71,71,1);
 }
 
 .red{
   color: #C9302C !important;
 }
 
-/*AUTHORISATION*/
-.margin-bottom{
-    margin-bottom: 40px;
-}
-
-form{
-  border: 1px solid red;
-  text-align: center;
-  padding:20px 10px;
-}
-
-.hide {
+/*Comments*/
+/*.hide {
 	display: none;
 }
 .link {
@@ -117,4 +130,23 @@ form{
 
 .login {
 
+}*/
+
+/*AUTHORISATION*/
+.margin-bottom{
+  margin-bottom: 40px;
+}
+
+form{
+  text-align: center;
+  padding:20px 10px;
+  border:1px solid #777;
+}
+
+/*FOOTER*/
+footer{
+  border:;
+  text-align: center;
+  margin-top: 40px;
+  border-top: 2px solid #333
 }
