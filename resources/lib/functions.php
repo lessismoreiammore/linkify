@@ -119,9 +119,9 @@ function getUserInfo($connection, $identification, $type = "id")
     $identification = mysqli_real_escape_string($connection, $identification);
     $user = [];
     if ($type === "id") {
-        $user = dbGet($connection, "SELECT id, username, email, name FROM users WHERE id = '$identification'", true);
+        $user = dbGet($connection, "SELECT id, username, email, name, avatar FROM users WHERE id = '$identification'", true);
     } else if ($type === "username") {
-        $user = dbGet($connection, "SELECT id, username, email, name FROM users WHERE username = '$identification'", true);
+        $user = dbGet($connection, "SELECT id, username, email, name, avatar FROM users WHERE username = '$identification'", true);
     }
     return $user;
 }
