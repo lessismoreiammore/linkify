@@ -1,3 +1,4 @@
+/*Error and messages styling*/
 .errorContent, .messageContent {
   width: 100%;
   height: 50px;
@@ -37,16 +38,6 @@ h4 {
 	display: inline-block;
 }
 
-header {
-  width: 100%;
-  height: 55px;
-  border-bottom: 2px solid #000;
-  /*position: fixed;*/
-  z-index: 10;
-
-  display: flex;
-  justify-content: center;
-}
 .login {
 
 }
@@ -55,4 +46,5 @@ header {
 
 .logo{
     height: 80%;
+    float:left;
 }

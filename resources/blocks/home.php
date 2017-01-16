@@ -1,11 +1,9 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-	</head>
 	<body>
-		Welcome
+
+
+		<!-- Welcome
 		<br>
 		<a href="/settings.php">Profile</a>
 		<br>
@@ -13,8 +11,7 @@
 		<br>
 		<a href="/resources/blocks/components/writePost.php">New Post</a>
 		<br>
-		<a href="/resources/lib/userPosts.php">My own posts</a>
-		<br>
+		<a href="/resources/lib/userPosts.php">My own posts</a> -->
 		<?php require("resources/lib/allPosts.php"); ?>
 	</body>
 </html>
