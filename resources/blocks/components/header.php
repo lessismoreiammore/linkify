@@ -37,7 +37,22 @@ $message = $_SESSION["message"] ?? "";
                              </div>
                          </div>
                         <div class="col-md-4 col-xs-8">
-                            <a class="btn btn-danger btn-accent white" href="/resources/blocks/components/writePost.php" role="button">Write a post</a>
+                            <button class="btn btn-danger btn-accent white" data-toggle="modal" data-target=".bs-example-modal-lg"  role="button">Write a post</button>
+
+                            <!-- Modal with input form -->
+                            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                              <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title">New post</h1>
+                                    </div>
+                                    <?php
+                                    require("writePost.php");
+                                     ?>
+                            </div>
+                            </div>
+                          </div>
+
                         </div>
                         <div class="col-md-6 col-xs-12">
                                 <ul>
