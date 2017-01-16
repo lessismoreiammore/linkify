@@ -15,7 +15,7 @@ $message = $_SESSION["message"] ?? "";
 <header>
      <div class="container">
          <div class="row vertical-align">
-			 <div class="col-md-2">
+			 <div class="col-md-2 col-xs-4">
 				 <div class="logo">
 		 			<h1>LINKIFY</h1>
 		 		</div>
@@ -23,23 +23,23 @@ $message = $_SESSION["message"] ?? "";
 
              <!--If the user is logged in the menu will be shown in the right corner  -->
              <?php if ($loggedIn): ?>
-                 <div class="col-md-4">
+                 <div class="col-md-4 col-xs-8">
     				 <div class="welcomeMessage">
      					<h4>Welcome, <?php echo $user["username"] ?>!</h4>
      				</div>
     			 </div>
-    			 <div class="col-md-6">
+    			 <div class="col-md-6 col-xs-12">
 
                      <div class="row vertical-align">
-                         <div class="col-md-2">
+                         <div class="col-md-2 col-xs-4">
                              <div class="userAvatar">
-                                 <img class="img-responsive img-rounded" src="resources/img/users/<?php echo $user["id"]?>/<?php echo $user["avatar"] ?>" alt="user avatar" style="background-size: cover; height: 40px; border:1px solid #333">
+                                 <img class="img-responsive img-circle" src="resources/img/users/<?php echo $user["id"]?>/<?php echo $user["avatar"] ?>" alt="user avatar" style="background-size: cover; height: 40px; border:1px solid #333">
                              </div>
                          </div>
-                        <div class="col-md-4">
-                            <a class="btn btn-danger" href="/resources/blocks/components/writePost.php" role="button">Write a post</a>
+                        <div class="col-md-4 col-xs-8">
+                            <a class="btn btn-danger btn-accent white" href="/resources/blocks/components/writePost.php" role="button">Write a post</a>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-xs-12">
                                 <ul>
                                     <li> <a href="/settings.php">Profile settings</a></li>
                                     <li><a href="/resources/lib/userPosts.php">My posts</a></li>
