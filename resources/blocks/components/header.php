@@ -15,19 +15,29 @@ $message = $_SESSION["message"] ?? "";
      <div class="container">
          <div class="row">
 			 <div class="col-md-2">
-				 <div class="img-responsive">
-		 			<img class="logo" src="resources/img/logo.svg" alt="linkify logo">
+				 <div class="logo">
+		 			<h1>LINKIFY</h1>
 		 		</div>
 			 </div>
 			 <div class="col-md-4">
 				 <div class="welcomeMessage">
  					<p>Welcome, user!</p>
-
  				</div>
 			 </div>
 			 <div class="col-md-6">
 				 <div class="mainMenu">
+                     <div class="row">
+                         <div class="col-md-6">
 
+                         </div>
+                         <div class="col-md-6">
+                             <a href="#">Profile</a>
+                             <a href="#">Settings</a>
+                             <a href="#">My posts</a>
+                             <a href="#">Log out</a>
+                         </div>
+
+                     </div>
  				</div>
 
 			 </div>

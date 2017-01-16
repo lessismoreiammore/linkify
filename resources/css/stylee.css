@@ -17,6 +17,15 @@
   background: #1da1f2;
 }
 
+/*HEADER*/
+header{
+  border-bottom: 2px solid #333;
+}
+
+header .logo{
+  height: 50%;
+}
+
 .post .placeholderAvatar {
 	height: 100px;
 	width: 100px;
@@ -42,9 +51,4 @@ h4 {
 
 }
 .postContainer {
-}
-
-.logo{
-    height: 80%;
-    float:left;
 }
