@@ -1,3 +1,8 @@
+/*GENERAL STYLING*/
+a{
+  color:#777 !important;
+}
+
 /*Error and messages styling*/
 .errorContent, .messageContent {
   width: 100%;
@@ -24,7 +29,7 @@ header{
   padding-bottom: 15px;
 }
 
-header .vertical-align {
+header .vertical-align, .vertical-align {
   display: flex;
   flex-direction: row;
 }
@@ -45,20 +50,64 @@ header h1, header h4, header p{
   margin-bottom: 0 !important;
 }
 
-.post .placeholderAvatar {
-	height: 100px;
-	width: 100px;
-	display: inline-block;
+.white{
+    color:#fff !important;
 }
-a {
-	display: inline-block;
+
+/*MAIN CONTAINER*/
+.main-container{
+  padding-top: 30px;
+  padding-bottom: 15px;
 }
-h4 {
-	display: inline-block;
+
+/*ALL POSTS PART*/
+
+.post h4{
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
 }
-.post .postContent {
-	display: inline-block;
+
+.post p{
+  margin-bottom: 0 !important;
 }
+
+.padding-bottom{
+    padding-bottom: 10px;
+}
+
+.vertical-align-spacebetween{
+    display: flex;
+    flex-direction: row;
+}
+
+.vertical-align-spacebetween > [class^="col-"],
+.vertical-align-spacebetween > [class*=" col-"] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-accent{
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-decoration: none !important;
+}
+
+.red{
+  color: #C9302C !important;
+}
+
+/*AUTHORISATION*/
+.margin-bottom{
+    margin-bottom: 40px;
+}
+
+form{
+  border: 1px solid red;
+  text-align: center;
+  padding:20px 10px;
+}
+
 .hide {
 	display: none;
 }
@@ -68,6 +117,4 @@ h4 {
 
 .login {
 
-}
-.postContainer {
 }

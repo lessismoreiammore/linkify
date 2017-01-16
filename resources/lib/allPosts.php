@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<body>
-		<div class="post">
 		<?php
 
 		//Get info about posts from database
@@ -20,28 +19,77 @@
 			$postId = $post["postid"];
             $postLink = $post["link"];
 			?>
+            <div class="row vertical-align">
+				<!-- Avatar-->
+                <div class="col-md-4">
+                    <img src="/resources/img/users/<?php echo $uid ?>/<?php echo $postAvatar; ?>" style="width: 100%; height: 100%;" alt="user avatar">
 
-				<div class="placeholderAvatar" style="display: inline-block"><img src="/resources/img/users/<?php echo $uid ?>/<?php echo $postAvatar; ?>" style="width: 100%; height: 100%;" alt=""></div>
-				<div class="postContent" style="display: inline-block">
-					<h4><?= $postTitle; ?></h4><br>
-					<a href="#"><?= $postLink; ?></a>
-                    <p><?= $postContent; ?></p>
+                </div>
+                <div class="col-md-8">
+					<div class="row">
+						<!-- Post title -->
+						<div class="col-md-12">
+							<h4><?= $postTitle; ?></h4><br>
+						</div>
+						<!-- Post link -->
+						<div class="col-md-12 padding-bottom">
+							<a href="#"><?= $postLink; ?></a>
+						</div>
+						<!-- Link description  -->
+						<div class="col-md-12 padding-bottom">
+							<p><?= $postContent; ?></p>
+						</div>
 
-                    <!-- Like and unlike counters -->
-					<!-- I really miss the option of unlike at most social media that's why I decided to make it separetely -->
-					<span><a href="resources/lib/like.php?type=post&id=<?php echo $postId?>">Like</a></span>
-					<span><a href="resources/lib/unlike.php?type=post&id=<?php echo $postId?>">Dislike</a></span>
-                    <?php
-                    $likesNumber = dbGet($connection, "SELECT COUNT(id) AS likes FROM likes WHERE postid = '$postId'");
-					$unlikesNumber = dbGet($connection, "SELECT COUNT(id) AS likes FROM unlikes WHERE postid = '$postId'");
-                     ?>
-					<span><p><?php echo $likesNumber[0]['likes']?> people like this</p></span>
-					<span><p><?php echo $unlikesNumber[0]['likes']?> people dislike this</p></span>
+						<!-- Like and unlike counters -->
+						<?php
+	                    $likesNumber = dbGet($connection, "SELECT COUNT(id) AS likes FROM likes WHERE postid = '$postId'");
+						$unlikesNumber = dbGet($connection, "SELECT COUNT(id) AS likes FROM unlikes WHERE postid = '$postId'");
+	                     ?>
+
+						 <!--Like counter -->
+						<div class="col-md-12 padding-bottom">
+							<div class="row vertical-align-spacebetween">
+								<div class="col-md-6">
+									<button type="button" name="button" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up red" aria-hidden="true"><a class="btn-accent" href="resources/lib/like.php?type=post&id=<?php echo $postId?>"> Like</a></span></button>
+								</div>
+								<div class="col-md-6">
+									<p><?php echo $likesNumber[0]['likes']?> people like this</p>
+								</div>
+							</div>
+						</div>
+						<!-- Dislike counter -->
+						<!-- I really miss the option of unlike at most social media that's why I decided to make it separetely -->
+						<div class="col-md-12 padding-bottom">
+							<div class="row">
+								<div class="col-md-6">
+									<button type="button" name="button" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"><a class="btn-accent" href="resources/lib/unlike.php?type=post&id=<?php echo $postId?>"> Dislike</a></button>
+								</div>
+								<div class="col-md-6">
+									<p><?php echo $unlikesNumber[0]['likes']?> people dislike this</p>
+								</div>
+							</div>
+
+						</div>
+						<!-- Comments -->
+						<div class="col-md-12 padding-bottom">
+							<div class="row">
+								<div class="col-md-6">
+									<span><a class="comments" href="#" data-post-id="<?= $uid ?>">Comment</a></span>
+								</div>
+								<div class="col-md-6">
+									<span><a class="comments" href="#" data-post-id="<?= $uid ?>">Show comments</a></span>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+
+                </div>
+            </div>
 
 
-                    <!-- Comment part -->
-					<span><a class="comments" href="#" data-post-id="<?= $uid ?>">Comment</a></span>
-				</div>
+
 
 
 				<div class="hide" id="content">
@@ -66,7 +114,6 @@
 		<?php
 		}
 		?>
-		</div>
 		<script src="resources/js/script.js"></script>
 	</body>
 </html>

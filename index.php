@@ -19,7 +19,7 @@ $loggedIn = checkLogin($connection);
 
       <?php
       	  require("resources/blocks/components/header.php");?>
-        <div class="container">
+        <div class="container main-container">
             <div class="row">
                 <?php
                if ($loggedIn) {
