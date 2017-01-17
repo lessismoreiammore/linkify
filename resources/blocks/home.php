@@ -1,2 +1,3 @@
- <?php require("resources/lib/allPosts.php");
+ <?php
+ require("resources/lib/allPostsWithComments.php");
  ?>

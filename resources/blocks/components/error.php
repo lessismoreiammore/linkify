@@ -1,5 +1,7 @@
-<?php if ($error): ?>
-	<!-- Creating a div for the error message to be able to style it -->
+<?php
+$error = $_SESSION["error"] ?? "";
+if ($error): ?>
+	<!-- Creating a div for the error message -->
 <div class="errorContent">
     <?php echo $error; ?>
 </div>

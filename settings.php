@@ -16,10 +16,8 @@ require("resources/lib/functions.php");
   <body>
 
 		<?php
-
+        $resourcesDir = "resources/";
 		require("resources/blocks/components/header.php");
-		require("resources/blocks/components/error.php");
-        require("resources/blocks/components/message.php");
 
 		$uid = $_SESSION["login"]["uid"];
 		$users = dbGet($connection, "SELECT * FROM users WHERE id = '$uid';");
@@ -97,6 +95,10 @@ require("resources/lib/functions.php");
 			</div>
 
 		</div>
+        <?php
+            require("resources/blocks/components/error.php");
+            require("resources/blocks/components/message.php");
+         ?>
 
         <footer>
             <h5><span class="glyphicon glyphicon-copyright-mark "></span><a href="#">   lessismoreiammore</a></h5>

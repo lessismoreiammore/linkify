@@ -6,7 +6,8 @@
 		//Get info about posts from database
 		$postInfo = dbGet($connection, "SELECT *, posts.id 'postid'  FROM posts INNER JOIN users ON users.id = posts.uid ORDER BY published DESC;");
 
-
+		//Get info about comments from database
+		$commentInfo = dbGet($connection, "SELECT post_id, content, users.name FROM comments INNER JOIN users ON users.id = comments.uid ORDER BY published DESC;");
 
 		foreach($postInfo as $post) {
 			$postContent = $post["content"];
@@ -71,7 +72,36 @@
 						</div>
 						<!-- Comments -->
 						<div class="col-md-12 padding-bottom">
-						    <h5 class="red">To view and leave comments you should be logged in</h5>
+							<div class="row" style="margin-top:20px;">
+								<div class="col-md-6">
+									<form action="resources/lib/insertComment.php" method="POST">
+                                        <div class="form-group">
+                                            <label for="ContentComment" placeholder="Add your comment here"></label>
+                                            <input type="text" class="form-control" name="content" id="ContentComment" placeholder="Add your comment here" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="hidden" name="commentAction" value="createComment">
+                                            <input type="hidden" name="postId" value="<?= $postId ?>">
+                                        </div>
+									   <button class="btn btn-accent btn-danger white" type="submit">Make comment</button>
+									</form>
+								</div>
+								<div class="col-md-6">
+									<?php
+									foreach ($commentInfo as $comment) {
+										$postCommentId = $comment["post_id"];
+										$commentContent = $comment["content"];
+										$commentAuthor = $comment["name"];
+										if($postCommentId === $postId){?>
+											<h5><span class="glyphicon glyphicon-pencil"></span>
+                                                 <?php echo $commentContent ?><small> by <?php echo $commentAuthor ?></small></h5>
+                                    <?php
+										}
+									}
+									 ?>
+								</div>
+
+							</div>
 						</div>
 
 					</div>

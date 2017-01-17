@@ -84,17 +84,6 @@ header h1, header h4, header p{
   padding-bottom: 10px;
 }
 
-.vertical-align-spacebetween{
-    display: flex;
-    flex-direction: row;
-}
-
-.vertical-align-spacebetween > [class^="col-"],
-.vertical-align-spacebetween > [class*=" col-"] {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
 .btn-accent{
   text-transform: uppercase;
@@ -122,16 +111,7 @@ box-shadow: 0px 2px 1px -1px rgba(71,71,71,1);
 }
 
 /*Comments*/
-/*.hide {
-	display: none;
-}
-.link {
-	display: inline-block;
-}
 
-.login {
-
-}*/
 
 /*AUTHORISATION*/
 .margin-bottom{

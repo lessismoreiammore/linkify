@@ -32,7 +32,8 @@ foreach($posts as $post) {
   </head>
   <body>
 		<?php
-        // require("resources/blocks/components/header.php");
+        $resourcesDir = "../";
+        require(__DIR__."/../blocks/components/header.php");
 			?>
 
 			<div class="container">
@@ -60,41 +61,15 @@ foreach($posts as $post) {
     						<!-- Like and unlike counters -->
     						<?php
     	                    $likesNumber = dbGet($connection, "SELECT COUNT(id) AS likes FROM likes WHERE postid = '$postid'");
-    						$unlikesNumber = dbGet($connection, "SELECT COUNT(id) AS likes FROM unlikes WHERE postid = '$postid'");
+    						          $unlikesNumber = dbGet($connection, "SELECT COUNT(id) AS likes FROM unlikes WHERE postid = '$postid'");
     	                     ?>
 
-    						 <!--Like counter -->
+    						 <!--Like and dislike counters output -->
     						<div class="col-md-12 padding-bottom">
-    							<div class="row vertical-align-spacebetween">
-    								<div class="col-md-6">
-    									<button type="button" name="button" class="btn btn-default grey"><span class="glyphicon glyphicon-thumbs-up red" aria-hidden="true"><a class="btn-accents" href="resources/lib/like.php?type=post&id=<?php echo $postid?>"> Like</a></span></button>
-    								</div>
-    								<div class="col-md-6">
+    							<div class="row">
+    								<div class="col-md-12">
     									<p><?php echo $likesNumber[0]['likes']?> people like this</p>
-    								</div>
-    							</div>
-    						</div>
-    						<!-- Dislike counter -->
-    						<!-- I really miss the option of unlike at most social media that's why I decided to make it separetely -->
-    						<div class="col-md-12 padding-bottom">
-    							<div class="row">
-    								<div class="col-md-6">
-    									<button type="button" name="button" class="btn btn-default grey"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"><a class="btn-accents" href="resources/lib/unlike.php?type=post&id=<?php echo $postid?>"> Dislike</a></button>
-    								</div>
-    								<div class="col-md-6">
-    									<p><?php echo $unlikesNumber[0]['likes']?> people dislike this</p>
-    								</div>
-    							</div>
-
-    						</div>
-    						<!-- Comments -->
-    						<div class="col-md-12 padding-bottom">
-    							<div class="row">
-    								<div class="col-md-6">
-    									<span><a class="comments" href="#" data-post-id="<?= $uid ?>">Comment</a></span>
-    								</div>
-    								<div class="col-md-6">
-    									<span><a class="comments" href="#" data-post-id="<?= $uid ?>">Show comments</a></span>
+                      <p><?php echo $unlikesNumber[0]['likes']?> people dislike this</p>
     								</div>
 
     							</div>
@@ -104,30 +79,6 @@ foreach($posts as $post) {
 
                     </div>
                 </div>
-                <div class="hide" id="content">
-                  <?php
-                  // foreach ($comments as $comment) {
-                  // 	echo $comment["content"] . " - " . $comment["name"] . "<br>";
-                  // }
-                   ?>
-                  <br>
-                  <form action="resources/lib/insertComment.php" method="POST">
-                    <input type="hidden" name="commentAction" value="createComment">
-                              <input type="hidden" name="postId" value="<?= $postid ?>">
-                    <textarea name="content" placeholder="Add your comment here"></textarea>
-                    <button type="submit">Comment</button>
-                  </form>
-                </div>
-
-                <!-- <div class="placeholderAvatar"><img src="/resources/img/users/<?php echo $uid ?>/<?php echo $postAvatar; ?>" style="width: 100%; height: 100%;" alt=""></div>
-                <div class="postContent">
-                  <h4><?= $postTitle; ?></h4> <br>
-                          <a href="#"><?= $link; ?></a><br>
-                  <p><?= $postContent; ?></p><br>
-                  <a class="comments" href="#">comments</a>
-                </div>
-                <br> -->
-
 
                 <div class="row margin-top">
 
@@ -172,22 +123,11 @@ foreach($posts as $post) {
                   </div>
 
                 </div>
-                <?php
-                $myfile = fopen("editPostids/$postid.php", "w");
-                $txt = "<?php
-                require('../../../resources/lib/editPost.php');
-                 ?>";
-                fwrite($myfile, $txt);
-                  fclose($myfile);
-
-                 ?>
-
 
 			</div>
 
 
 		<?php
-        echo $postId;
 		}
 		?>
 

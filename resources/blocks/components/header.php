@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 // Creating the variable if a login session has started
 $loggedIn = isset($_SESSION["login"]);
@@ -33,7 +32,16 @@ $message = $_SESSION["message"] ?? "";
                      <div class="row vertical-align">
                          <div class="col-md-2 col-xs-4">
                              <div class="userAvatar">
-                                 <img class="img-responsive img-circle" src="resources/img/users/<?php echo $user["id"]?>/<?php echo $user["avatar"] ?>" alt="user avatar" style="background-size: cover; height: 40px; border:1px solid #333">
+                                 <?php
+                                 if(isset($user["avatar"])){?>
+                                     <img class="img-responsive img-circle" src="<?php echo $resourcesDir?>img/users/<?php echo $user["id"]?>/<?php echo $user["avatar"] ?>" alt="user avatar" style="background-size: cover; height: 40px; border:1px solid #333">
+                                <?php
+                            }else{?>
+                                <img class="img-responsive img-circle" src="<?php echo $resourcesDir?>img/users/newUser.png" alt="user avatar" style="background-size: cover; height: 40px; border:1px solid #333">
+                            <?php
+                            }
+                                  ?>
+
                              </div>
                          </div>
                         <div class="col-md-4 col-xs-8">

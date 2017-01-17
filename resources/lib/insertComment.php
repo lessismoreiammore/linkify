@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     require("functions.php");
@@ -15,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             header("Location: /");
             die();
         }
-        
+
         $postId = $_POST["postId"];
 		$content = mysqli_real_escape_string($connection, $_POST["content"]);
         $uid = $_SESSION["login"]["uid"];

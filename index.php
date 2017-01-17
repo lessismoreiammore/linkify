@@ -18,6 +18,7 @@ $loggedIn = checkLogin($connection);
    <body>
 
       <?php
+        $resourcesDir = "resources/";
       	  require("resources/blocks/components/header.php");?>
         <div class="container main-container">
             <div class="row">

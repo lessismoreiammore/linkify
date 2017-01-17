@@ -1,8 +1,6 @@
 <?php
 session_start();
 require("../../lib/functions.php");
-require("../../blocks/components/error.php");
-require("../../blocks/components/message.php");
 
 $uid = $_SESSION["login"]["uid"];
 $users = dbGet($connection, "SELECT * FROM users WHERE id = '$uid';");
@@ -25,15 +23,16 @@ foreach($users as $user) {
 
    <body>
       <?php
-         require("../../blocks/components/header.php");
+        $resourcesDir = "../../";
+         require(__DIR__."/../components/header.php");
        ?>
        <div class="containter">
           <div class="row vertical-align">
-             <div class="col-md-4">
-                <img src="/resources/img/users/<?php echo $uid ?>/<?php echo $avatar; ?>" style="width: 100%; height: 100%;" alt="user avatar">
+             <div class="col-md-6">
+                <img src="/resources/img/users/<?php echo $uid ?>/<?php echo $avatar; ?>"  alt="user avatar">
              </div>
-             <div class="col-md-8">
-                <form action="../../lib/settings.php" method="POST" enctype="multipart/form-data">
+             <div class="col-md-6">
+                <form action="../../lib/settings.php" method="POST" enctype="multipart/form-data" style="width:80%">
                    <div class="form-group">
                       <input type="hidden" name="action" value="changeAvatar">
                    </div>
@@ -51,6 +50,10 @@ foreach($users as $user) {
           </div>
 
        </div>
+       <?php
+       require("../../blocks/components/error.php");
+       require("../../blocks/components/message.php");
+        ?>
 
 
 

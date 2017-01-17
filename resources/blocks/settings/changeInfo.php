@@ -10,8 +10,6 @@ foreach($users as $user) {
 	$email = $user["email"];
 }
 
-require("../../blocks/components/error.php");
-require("../../blocks/components/message.php");
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +24,8 @@ require("../../blocks/components/message.php");
 
   <body>
      <?php
-        require("../../blocks/components/header.php");
+        $resourcesDir = "../../";
+        require(__DIR__."/../components/header.php");
       ?>
       <div class="container">
         <div class="row">
@@ -52,6 +51,10 @@ require("../../blocks/components/message.php");
 
       </div>
 
+      <?php
+      require("../../blocks/components/error.php");
+      require("../../blocks/components/message.php");
+       ?>
 
 
 <footer>

@@ -98,7 +98,7 @@ function validateCookie($connection)
 // Creates a function to see if user is logged in. Using both SESSION and COOKIE array.
 function checkLogin($connection)
 {
-    session_start();
+
     if (!isset($_SESSION["login"])) {
         if (!isset($_COOKIE["linkify"])) {
             return false;

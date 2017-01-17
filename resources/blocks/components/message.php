@@ -1,5 +1,7 @@
-<?php if ($message): ?>
-	<!-- Creating a div for the message to be able to style it -->
+<?php
+$message = $_SESSION["message"] ?? "";
+if ($message): ?>
+	<!-- Creating a div for the message  -->
 <div class="messageContent">
     <?php echo $message; ?>
 </div>

@@ -1,8 +1,6 @@
 <?php
 session_start();
 require("../../lib/functions.php");
-require("../../blocks/components/error.php");
-require("../../blocks/components/message.php");
 
 ?>
 
@@ -18,6 +16,7 @@ require("../../blocks/components/message.php");
 
   <body>
      <?php
+        $resourcesDir = "../../";
         require("../../blocks/components/header.php");
       ?>
       <div class="container">
@@ -43,6 +42,11 @@ require("../../blocks/components/message.php");
         </div>
 
       </div>
+
+      <?php
+      require("../../blocks/components/error.php");
+      require("../../blocks/components/message.php");
+       ?>
 
 
 
