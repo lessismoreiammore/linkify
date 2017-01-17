@@ -1,7 +1,7 @@
 <?php
 
 //get the post id from the form
-$postDelid = $_POST["urlid"];
+$postDelid = $_POST["idPost"];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	// session_start();
