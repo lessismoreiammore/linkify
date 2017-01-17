@@ -88,10 +88,6 @@
                 </div>
             </div>
 
-
-
-
-
 				<div class="hide" id="content">
 					<br>
 					<form action="resources/lib/insertComment.php" method="POST">
