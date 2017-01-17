@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["message"] = "Success! Your changes has been registred.";
         }
 
-        header("Location: /settings.php");
+        header("Location: /");
         die();
 	  } else if ($action === "changePassword") {
 
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["message"] = "Your password has now been changed.";
         }
 
-        header("Location: /settings.php");
+        header("Location: /");
         die();
     } else if ($action === "changeAvatar") {
 
@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             uploadImage($connection, $_FILES["avatar"], "avatar", $_SESSION["login"]["uid"]);
         }
 
-        header("Location: /resources/blocks/settings/changeAvatar.php");
+        header("Location: /");
         die();
     }
 

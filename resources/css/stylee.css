@@ -7,6 +7,7 @@ a{
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
+
 /*Error and messages styling*/
 .errorContent, .messageContent {
   width: 100%;
@@ -17,13 +18,13 @@ input:-webkit-autofill {
   font-size: 14px;
   font-weight: bold;
   margin-top: 20px;
-  -webkit-box-shadow: 0px 7px 1px -1px rgba(128,41,33,1);
--moz-box-shadow: 0px 7px 1px -1px rgba(128,41,33,1);
-box-shadow: 0px 7px 1px -1px rgba(128,41,33,1);
 }
 
 .errorContent {
   background: #e74c3c;
+  -webkit-box-shadow: 0px 7px 1px -1px rgba(128,41,33,1);
+-moz-box-shadow: 0px 7px 1px -1px rgba(128,41,33,1);
+box-shadow: 0px 7px 1px -1px rgba(128,41,33,1);
 }
 
 .messageContent {
@@ -141,6 +142,20 @@ form{
   text-align: center;
   padding:20px 10px;
   border:1px solid #777;
+}
+
+/*SETTINGS*/
+.col-md-4.control{
+  border:1px solid red;
+}
+
+.margin-top{
+  margin-top: 40px;
+}
+
+.side-borders{
+    border-right: 1px solid #777;
+    border-left: 1px solid #777;
 }
 
 /*FOOTER*/
