@@ -32,6 +32,7 @@ $message = $_SESSION["message"] ?? "";
                      <div class="row vertical-align">
                          <div class="col-md-2 col-xs-4">
                              <div class="userAvatar">
+                                 <!-- The pick of the avatar if the user is just registred -->
                                  <?php
                                  if(isset($user["avatar"])){?>
                                      <img class="img-responsive img-circle" src="<?php echo $resourcesDir?>img/users/<?php echo $user["id"]?>/<?php echo $user["avatar"] ?>" alt="user avatar" style="background-size: cover; height: 40px; border:1px solid #333">
