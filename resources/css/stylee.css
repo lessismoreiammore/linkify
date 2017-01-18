@@ -140,8 +140,15 @@ form{
 
 /*FOOTER*/
 footer{
-  border:;
   text-align: center;
   margin-top: 40px;
-  border-top: 2px solid #333
+  border-top: 2px solid #333;
+}
+
+/*Media queries*/
+/*Do not work properly*/
+@media only screen and (min-width: 450px){
+  .vertical-align{
+    display: column;
+  }
 }
